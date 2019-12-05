@@ -6,11 +6,29 @@ class MemoryGame {
     this.pairsGuessed = 0;
     // add the rest of the class properties here
   }
+
   shuffleCards() {
     for (let i = 0; i < this.cards.length; i++) {
       this.cards[Math.floor(Math.random() * this.cards.length)];
     }
+    return this.cards.sort(() => Math.random() - 0.5);
   }
-  checkIfPair(card1, card2) {}
-  isFinished() {}
+
+  checkIfPair(card1, card2) {
+    if (card1 === card2) {
+      this.pairsClicked++;
+      this.pairsGuessed++;
+      this.isFinished();
+      return true;
+    } else {
+      this.pairsClicked++;
+      return false;
+    }
+  }
+
+  isFinished() {
+    if (this.pairsGuessed !== 8) {
+      return false;
+    } else return true;
+  }
 }
