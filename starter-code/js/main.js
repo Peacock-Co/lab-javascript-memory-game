@@ -42,6 +42,9 @@ window.addEventListener("load", event => {
   // Bind the click event of each element to a function
   document.querySelectorAll(".card").forEach(card => {
     card.addEventListener("click", () => {
+      card.classList.toggle("turned", ["pairs_clicked", "pairs_guessed"]);
+      console.log(card);
+
       // TODO: write some code here
       console.log(`Card clicked: ${card}`);
     });
